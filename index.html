@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sahil Thapa - Aspiring Full-Stack Web Developer & IT Student." />
+    <meta name="keywords" content="Sahil Thapa, Full Stack Developer, Laravel, PHP, JavaScript, Portfolio, Nepal" />
+    <meta name="author" content="Sahil Thapa" />
+    <title>Sahil Thapa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#0A2318',
+                        pine: '#0F3D25',
+                        emerald: '#1A6B3C',
+                        sage: '#2D9E5F',
+                        mint: '#4DC98A',
+                        foam: '#E8F8F0',
+                        white: '#FFFFFF',
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    animation: {
+                        float: 'float 6s ease-in-out infinite',
+                        floatSlow: 'float 9s ease-in-out infinite',
+                        floatMed: 'float 7.5s ease-in-out infinite',
+                        fadeInLeft: 'fadeInLeft 0.8s ease forwards',
+                        fadeInRight: 'fadeInRight 0.8s ease forwards',
+                        fadeInUp: 'fadeInUp 0.7s ease forwards',
+                        pulse2: 'pulse2 2.5s ease-in-out infinite',
+                        spin3d: 'spin3d 18s linear infinite',
+                        marquee: 'marquee 30s linear infinite',
+                        marqueeRev: 'marqueeRev 34s linear infinite',
+                        blink: 'blink 0.85s step-end infinite',
+                        glow: 'glow 3s ease-in-out infinite',
+                        slideDown: 'slideDown 0.4s ease forwards',
+                    },
+                    keyframes: {
+                        float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-16px)' } },
+                        fadeInLeft: { from: { opacity: '0', transform: 'translateX(-50px)' }, to: { opacity: '1', transform: 'translateX(0)' } },
+                        fadeInRight: { from: { opacity: '0', transform: 'translateX(50px)' }, to: { opacity: '1', transform: 'translateX(0)' } },
+                        fadeInUp: { from: { opacity: '0', transform: 'translateY(30px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+                        pulse2: { '0%,100%': { transform: 'scale(1)', opacity: '0.8' }, '50%': { transform: 'scale(1.1)', opacity: '1' } },
+                        spin3d: { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
+                        marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+                        marqueeRev: { '0%': { transform: 'translateX(-50%)' }, '100%': { transform: 'translateX(0)' } },
+                        blink: { '50%': { opacity: '0' } },
+                        glow: { '0%,100%': { boxShadow: '0 0 20px rgba(77,201,138,0.3)' }, '50%': { boxShadow: '0 0 50px rgba(77,201,138,0.7)' } },
+                        slideDown: { from: { opacity: '0', transform: 'translateY(-8px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+                    },
+                }
+            }
+        };
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Progress bar -->
+    <div id="progress-bar" style="width:0%"></div>
+
+    <!-- ═══════════════════════════════════════
+     NAV
+═══════════════════════════════════════ -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="glass mx-4 mt-3 rounded-2xl px-6 py-3.5 shadow-[0_8px_32px_rgba(10,35,24,0.12)]">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#home" class="font-display font-black text-xl tracking-tight">
+                    <span class="grad-text">Sahil</span><span style="color:var(--forest);opacity:0.45">Thapa</span>
+                </a>
+
+                <!-- Desktop nav -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-sm" style="color:var(--forest)">Home</a>
+                    <a href="#about" class="nav-link text-sm" style="color:var(--forest)">About</a>
+                    <a href="#skills" class="nav-link text-sm" style="color:var(--forest)">Skills</a>
+                    <a href="#projects" class="nav-link text-sm" style="color:var(--forest)">Projects</a>
+                    <a href="#contact" class="nav-link text-sm" style="color:var(--forest)">Contact</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-3">
+                    <a href="#" download class="btn-primary hidden md:inline-flex text-xs px-4 py-2">
+                        <i class="fas fa-download text-xs"></i> Download CV
+                    </a>
+                    <button id="hamburger" aria-label="Open menu" class="hamburger flex flex-col gap-1.5 md:hidden p-1">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu">
+                <nav class="flex flex-col py-4 gap-1">
+                    <a href="#home"
+                        class="mobile-link px-3 py-2.5 rounded-xl text-sm font-medium transition-all hover:bg-foam"
+                        style="color:var(--forest)">Home</a>
+                    <a href="#about"
+                        class="mobile-link px-3 py-2.5 rounded-xl text-sm font-medium transition-all hover:bg-foam"
+                        style="color:var(--forest)">About</a>
+                    <a href="#skills"
+                        class="mobile-link px-3 py-2.5 rounded-xl text-sm font-medium transition-all hover:bg-foam"
+                        style="color:var(--forest)">Skills</a>
+                    <a href="#projects"
+                        class="mobile-link px-3 py-2.5 rounded-xl text-sm font-medium transition-all hover:bg-foam"
+                        style="color:var(--forest)">Projects</a>
+                    <a href="#contact"
+                        class="mobile-link px-3 py-2.5 rounded-xl text-sm font-medium transition-all hover:bg-foam"
+                        style="color:var(--forest)">Contact</a>
+                    <a href="#" download class="btn-primary mt-2 justify-center text-sm">
+                        <i class="fas fa-download text-xs"></i> Download CV
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════
+     HERO  (dark bg)
+═══════════════════════════════════════ -->
+    <section id="home" class="section-dark relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+        <!-- Decorative blobs -->
+        <div class="absolute -top-40 -left-40 w-[500px] h-[500px] blob opacity-20 animate-float"
+            style="background:radial-gradient(circle,var(--emerald),transparent)"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 blob opacity-15 animate-floatSlow"
+            style="background:radial-gradient(circle,var(--sage),transparent)"></div>
+        <div class="absolute top-1/3 left-1/2 w-px h-40 opacity-10"
+            style="background:linear-gradient(to bottom,transparent,var(--mint),transparent)"></div>
+
+        <!-- Grid dots on dark -->
+        <div class="absolute inset-0 opacity-[0.06] pointer-events-none z-0"
+            style="background-image:radial-gradient(circle, rgba(77,201,138,1) 1px, transparent 1px);background-size:28px 28px;">
+        </div>
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-8 items-center">
+
+                <!-- LEFT -->
+                <div class="space-y-7 animate-fadeInLeft">
+                    <!-- Status badge -->
+                    <div class="glow-badge inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-mono"
+                        style="background:rgba(77,201,138,0.1);border-color:rgba(77,201,138,0.3);color:var(--mint)">
+                        <span class="w-2 h-2 rounded-full animate-pulse2" style="background:var(--mint)"></span>
+                        Available for opportunities
+                    </div>
+
+                    <div>
+                        <p class="text-sm font-medium mb-2" style="color:rgba(77,201,138,0.7)">Hi, I'm</p>
+                        <h1 class="font-display font-black leading-[1.05] tracking-tight">
+                            <span class="grad-text-light block" style="font-size:clamp(3rem,8vw,5.5rem)">Sahil</span>
+                            <span class="block text-white" style="font-size:clamp(2.5rem,7vw,4.5rem)">Thapa</span>
+                        </h1>
+                        <div class="flex items-center gap-3 mt-4">
+                            <div class="h-px w-10" style="background:rgba(77,201,138,0.5)"></div>
+                            <p class="font-mono text-sm" style="color:var(--mint)">
+                                <span id="typed-text"></span><span id="typed-cursor" style="color:var(--mint)">|</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="text-sm leading-relaxed max-w-[440px]" style="color:rgba(232,248,240,0.65)">
+                        An aspiring Full-Stack Web Developer and IT student with a passion for building modern,
+                        user-friendly web applications. I specialize in <span
+                            style="color:var(--mint);font-weight:600">PHP, Laravel, MySQL, JavaScript</span> and <span
+                            style="color:var(--mint);font-weight:600">REST APIs</span> — turning ideas into scalable
+                        digital products.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#projects" class="btn-mint"><i class="fas fa-rocket text-xs"></i> View My Projects</a>
+                        <a href="#contact" class="btn-ghost-white"><i class="fas fa-paper-plane text-xs"></i> Contact
+                            Me</a>
+                    </div>
+
+                    <!-- Socials -->
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-mono" style="color:rgba(77,201,138,0.4)">find me —</span>
+                        <a href="https://github.com/sahilthapamagar" target="_blank" class="social-btn"
+                            aria-label="GitHub"><i class="fab fa-github text-sm"></i></a>
+                        <a href="https://www.linkedin.com/in/sahil-thapa-1508683b3/" target="_blank" class="social-btn"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in text-sm"></i></a>
+                        <a href="https://www.facebook.com/sahil.thapa.magar.38221" target="_blank" class="social-btn"
+                            aria-label="Facebook"><i class="fab fa-facebook-f text-sm"></i></a>
+                        <a href="mailto:sahilmagar275@email.com" class="social-btn" aria-label="Email"><i
+                                class="fas fa-envelope text-sm"></i></a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="flex gap-8 pt-3 border-t" style="border-color:rgba(77,201,138,0.12)">
+                        <div>
+                            <p class="stat-num">2+</p>
+                            <p class="text-xs font-mono" style="color:rgba(232,248,240,0.4)">Years Coding</p>
+                        </div>
+                        <div class="w-px" style="background:rgba(77,201,138,0.12)"></div>
+                        <div>
+                            <p class="stat-num">10+</p>
+                            <p class="text-xs font-mono" style="color:rgba(232,248,240,0.4)">Projects Built</p>
+                        </div>
+                        <div class="w-px" style="background:rgba(77,201,138,0.12)"></div>
+                        <div>
+                            <p class="stat-num">6+</p>
+                            <p class="text-xs font-mono" style="color:rgba(232,248,240,0.4)">Technologies</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT — Avatar -->
+                <div class="flex justify-center items-center relative animate-fadeInRight">
+                    <div class="absolute w-80 h-80 orbit-ring"></div>
+                    <div class="absolute w-[420px] h-[420px] orbit-ring-2"></div>
+
+                    <!-- Floating tech chips -->
+                    <div class="absolute -top-2 right-4 glass-dark px-3 py-2 rounded-xl text-xs font-mono animate-float border"
+                        style="color:var(--mint);border-color:rgba(77,201,138,0.2)">
+                        <i class="fab fa-laravel mr-1.5" style="color:#ef4444"></i>Laravel
+                    </div>
+                    <div class="absolute bottom-6 left-2 glass-dark px-3 py-2 rounded-xl text-xs font-mono animate-floatSlow border"
+                        style="color:var(--mint);border-color:rgba(77,201,138,0.2)">
+                        <i class="fab fa-php mr-1.5" style="color:#8892be"></i>PHP
+                    </div>
+                    <div class="absolute top-1/2 -right-4 glass-dark px-3 py-2 rounded-xl text-xs font-mono animate-floatMed border"
+                        style="color:var(--mint);border-color:rgba(77,201,138,0.2)">
+                        <i class="fab fa-js mr-1.5" style="color:#f7df1e"></i>JS
+                    </div>
+                    <div class="absolute top-10 -left-2 glass-dark px-3 py-2 rounded-xl text-xs font-mono border"
+                        style="color:var(--mint);border-color:rgba(77,201,138,0.2);animation:float 8s ease-in-out infinite">
+                        <i class="fas fa-database mr-1.5" style="color:#00758f"></i>MySQL
+                    </div>
+
+                    <!-- Irregular profile image -->
+                    <div class="relative z-10 animate-float">
+                        <div class="hero-photo-shell">
+                            <div class="hero-photo-shape">
+                                <!-- Using your photo with background -->
+                                <div class="hero-photo-image" role="img" aria-label="Sahil Thapa portrait"
+                                    style="background-image:url('assets/profile.jpeg')"></div>
+                            </div>
+                            <div class="hero-photo-meta">
+                                <p class="font-display font-bold text-xl text-white">Sahil Thapa</p>
+                                <p class="text-xs font-mono mt-1" style="color:var(--mint)">Full-Stack Developer</p>
+                            </div>
+                        </div>
+                        <!-- glow -->
+                        <div class="absolute -inset-6 rounded-[3rem] -z-10 blur-3xl opacity-20 animate-pulse2"
+                            style="background:radial-gradient(circle,var(--sage),transparent)"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+     ABOUT  (light bg)
+═══════════════════════════════════════ -->
+    <section id="about" class="section-light py-16 md:py-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-72 h-72 blob opacity-[0.07] animate-floatSlow"
+            style="background:var(--sage)"></div>
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-12 md:mb-14 reveal">
+                <p class="text-xs font-mono uppercase tracking-widest mb-2" style="color:var(--sage)">Who I Am</p>
+                <h2 class="font-display font-bold text-5xl" style="color:var(--forest)">
+                    About <span class="grad-text">Me</span>
+                </h2>
+                <div class="flex justify-center mt-5">
+                    <div class="h-1 w-20 rounded-full"
+                        style="background:linear-gradient(90deg,var(--emerald),var(--mint))"></div>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+                    <!-- Card 1: Summary -->
+                    <div class="reveal">
+                        <div class="glass rounded-3xl p-8 border lift" style="border-color:rgba(77,201,138,0.15)">
+                            <div class="inline-flex items-center gap-2 mb-4">
+                                <span class="w-2.5 h-2.5 rounded-full" style="background:var(--mint)"></span>
+                                <p class="text-xs font-mono uppercase tracking-widest" style="color:var(--sage)">Who I
+                                    Am</p>
+                            </div>
+
+                            <h3 class="font-display font-bold text-3xl leading-tight" style="color:var(--forest)">
+                                Passionate Developer &<br /><span class="grad-text">Lifelong Learner</span>
+                            </h3>
+
+                            <p class="mt-4 text-sm leading-relaxed" style="color:rgba(10,35,24,0.65)">
+                                I'm Sahil Thapa, an IT student deeply passionate about crafting modern, scalable web
+                                applications. My journey started with curiosity and grew into full-stack development.
+                            </p>
+                            <p class="mt-3 text-sm leading-relaxed" style="color:rgba(10,35,24,0.65)">
+                                Currently pursuing my Bachelor's in Information Technology, I balance frontend
+                                aesthetics with backend logic — clean code, thoughtful design, and user empathy.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Journey + Actions -->
+                    <div class="reveal space-y-4">
+                        <div class="glass rounded-3xl p-8 border lift" style="border-color:rgba(77,201,138,0.15)">
+                            <p class="text-xs font-mono uppercase tracking-widest mb-4" style="color:var(--sage)">
+                                My Journey
+                            </p>
+
+                            <div class="space-y-4 py-2">
+                                <div class="flex gap-4 items-start">
+                                    <div class="timeline-dot mt-1.5"></div>
+                                    <div>
+                                        <p class="font-semibold text-sm" style="color:var(--forest)">B.Sc. IT Student
+                                        </p>
+                                        <p class="text-xs mt-0.5" style="color:var(--muted)">Currently enrolled ·
+                                            Focused on
+                                            Full-Stack Development</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <div class="timeline-dot mt-1.5"></div>
+                                    <div>
+                                        <p class="font-semibold text-sm" style="color:var(--forest)">Self-Taught
+                                            Developer</p>
+                                        <p class="text-xs mt-0.5" style="color:var(--muted)">Tailwind CSS, Bootstrap,
+                                            JavaScript, PHP, Python, Laravel, MySQL</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <div class="timeline-dot mt-1.5"></div>
+                                    <div>
+                                        <p class="font-semibold text-sm" style="color:var(--forest)">Aspiring Full-Stack
+                                            Engineer</p>
+                                        <p class="text-xs mt-0.5" style="color:var(--muted)">Goal: Building products
+                                            that matter
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass rounded-3xl p-8 border lift" style="border-color:rgba(77,201,138,0.15)">
+                            <p class="text-xs font-mono uppercase tracking-widest mb-4" style="color:var(--sage)">
+                                Skills & Tools
+                            </p>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tag">PHP</span><span class="tag">Laravel</span><span
+                                    class="tag">MySQL</span>
+                                <span class="tag">JavaScript</span><span class="tag">REST API</span><span
+                                    class="tag">Git</span>
+                                <span class="tag">Bootstrap</span><span class="tag">Tailwind CSS</span>
+                                <span class="tag">Python</span>
+                            </div>
+
+                            <div class="flex flex-wrap gap-3 pt-5">
+                                <a href="#projects" class="btn-primary">See My Work</a>
+                                <a href="#contact" class="btn-outline">Let's Talk</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+     SKILLS  (dark bg + marquee)
+═══════════════════════════════════════ -->
+    <section id="skills" class="section-dark relative py-14 md:py-16 overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+
+            <div class="text-center mb-7 md:mb-8 reveal">
+                <p class="text-xs font-mono uppercase tracking-widest mb-2" style="color:var(--mint)">What I Work With
+                </p>
+                <h2 class="font-display font-bold text-4xl md:text-5xl text-white">
+                    My <span class="grad-text-light">Skills</span>
+                </h2>
+                <div class="flex justify-center mt-5">
+                    <div class="h-1 w-20 rounded-full"
+                        style="background:linear-gradient(90deg,var(--emerald),var(--mint))"></div>
+                </div>
+                <p class="mt-3 text-xs font-mono" style="color:rgba(77,201,138,0.45)">Core technologies I use</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 reveal">
+
+                <div class="glass-dark rounded-2xl p-4 md:p-5 border" style="border-color:rgba(77,201,138,0.14)">
+                    <div class="strip-label mb-3">
+                        <div class="strip-label-line"></div>
+                        <p>Frontend</p>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                        <div class="skill-pill"><i class="fab fa-html5" style="color:#E44D26"></i><span
+                                class="skill-pill-name">HTML5</span></div>
+                        <div class="skill-pill"><i class="fab fa-css3-alt" style="color:#264de4"></i><span
+                                class="skill-pill-name">CSS3</span></div>
+                        <div class="skill-pill"><i class="fab fa-js-square" style="color:#F7DF1E"></i><span
+                                class="skill-pill-name">JavaScript</span></div>
+                        <div class="skill-pill"><i class="fas fa-wind" style="color:#06B6D4"></i><span
+                                class="skill-pill-name">Tailwind CSS</span></div>
+                        <div class="skill-pill"><i class="fab fa-bootstrap" style="color:#7952b3"></i><span
+                                class="skill-pill-name">Bootstrap</span></div>
+                        <div class="skill-pill"><i class="fab fa-figma" style="color:#a259ff"></i><span
+                                class="skill-pill-name">Figma</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-dark rounded-2xl p-4 md:p-5 border" style="border-color:rgba(77,201,138,0.14)">
+                    <div class="strip-label mb-3">
+                        <div class="strip-label-line"></div>
+                        <p>Backend Development</p>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                        <div class="skill-pill"><i class="fab fa-php" style="color:#8892be"></i><span
+                                class="skill-pill-name">PHP</span></div>
+                        <div class="skill-pill"><i class="fab fa-python" style="color:#3776ab"></i><span
+                                class="skill-pill-name">Python</span></div>
+                        <div class="skill-pill"><i class="fab fa-laravel" style="color:#ef4444"></i><span
+                                class="skill-pill-name">Laravel</span></div>
+                        <div class="skill-pill"><i class="fas fa-leaf" style="color:#2ba977"></i><span
+                                class="skill-pill-name">Django Basic</span></div>
+                        <div class="skill-pill"><i class="fas fa-network-wired" style="color:#10b981"></i><span
+                                class="skill-pill-name">REST API</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-dark rounded-2xl p-4 md:p-5 border" style="border-color:rgba(77,201,138,0.14)">
+                    <div class="strip-label mb-3">
+                        <div class="strip-label-line"></div>
+                        <p>Database & Storage</p>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                        <div class="skill-pill"><i class="fas fa-database" style="color:#00758f"></i><span
+                                class="skill-pill-name">MySQL</span></div>
+                        <div class="skill-pill"><i class="fas fa-sitemap" style="color:var(--emerald)"></i><span
+                                class="skill-pill-name">DB Design</span></div>
+                        <div class="skill-pill"><i class="fas fa-code" style="color:var(--sage)"></i><span
+                                class="skill-pill-name">SQL Queries</span></div>
+                        <div class="skill-pill"><i class="fas fa-project-diagram" style="color:#10b981"></i><span
+                                class="skill-pill-name">Eloquent ORM</span></div>
+                        <div class="skill-pill"><i class="fas fa-table" style="color:var(--emerald)"></i><span
+                                class="skill-pill-name">Migrations</span></div>
+                        <div class="skill-pill"><i class="fas fa-seedling" style="color:var(--sage)"></i><span
+                                class="skill-pill-name">Seeders</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-dark rounded-2xl p-4 md:p-5 border" style="border-color:rgba(77,201,138,0.14)">
+                    <div class="strip-label mb-3">
+                        <div class="strip-label-line"></div>
+                        <p>Frameworks & Tools</p>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                        <div class="skill-pill"><i class="fab fa-git-alt" style="color:#F05032"></i><span
+                                class="skill-pill-name">Git</span></div>
+                        <div class="skill-pill"><i class="fab fa-github" style="color:#333"></i><span
+                                class="skill-pill-name">GitHub</span></div>
+                        <div class="skill-pill"><i class="fas fa-code" style="color:#0078D4"></i><span
+                                class="skill-pill-name">VS Code</span></div>
+                        <div class="skill-pill"><i class="fab fa-laravel" style="color:#ef4444"></i><span
+                                class="skill-pill-name">Laravel</span></div>
+                        <div class="skill-pill"><i class="fas fa-leaf" style="color:#2ba977"></i><span
+                                class="skill-pill-name">Django</span></div>
+                        <div class="skill-pill"><i class="fas fa-server" style="color:var(--sage)"></i><span
+                                class="skill-pill-name">cPanel</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+     PROJECTS  (light bg)
+═══════════════════════════════════════ -->
+    <section id="projects" class="section-light py-28 relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-80 h-80 blob opacity-[0.06] animate-float"
+            style="background:var(--sage)"></div>
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <p class="text-xs font-mono uppercase tracking-widest mb-2" style="color:var(--sage)">What I've Built
+                </p>
+                <h2 class="font-display font-bold text-5xl" style="color:var(--forest)">
+                    Featured <span class="grad-text">Projects</span>
+                </h2>
+                <div class="flex justify-center mt-5">
+                    <div class="h-1 w-20 rounded-full"
+                        style="background:linear-gradient(90deg,var(--emerald),var(--mint))"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Project 1 -->
+                <div class="project-card lift glass rounded-3xl overflow-hidden reveal border"
+                    style="border-color:rgba(77,201,138,0.15)">
+                    <div class="relative h-52 overflow-hidden"
+                        style="background:linear-gradient(135deg,var(--forest),var(--pine))">
+                        <div class="absolute inset-0 opacity-[0.07]"
+                            style="background-image:radial-gradient(circle,#4DC98A 1px,transparent 1px);background-size:20px 20px;">
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                            <i class="fas fa-car text-6xl" style="color:rgba(77,201,138,0.5)"></i>
+                            <span class="text-xs font-mono" style="color:rgba(77,201,138,0.4)">Marketplace
+                                Platform</span>
+                        </div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono font-bold"
+                            style="background:rgba(77,201,138,0.15);color:var(--mint);border:1px solid rgba(77,201,138,0.25)">#01</span>
+                        <div class="overlay absolute inset-0 flex items-center justify-center gap-3"
+                            style="background:rgba(10,35,24,0.92)">
+                            <a href="#" class="btn-mint text-xs px-4 py-2"><i class="fas fa-external-link-alt"></i> Live
+                                Demo</a>
+                            <a href="#" class="btn-ghost-white text-xs px-4 py-2"><i class="fab fa-github"></i>
+                                GitHub</a>
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="font-display font-bold text-xl mb-2" style="color:var(--forest)">Second-Hand Car
+                            Marketplace</h3>
+                        <p class="text-sm leading-relaxed mb-5" style="color:var(--muted)">
+                            Full-featured marketplace for buying and selling used cars with advanced search,
+                            authentication, listing management, and dealer profiles.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span>
+                            <span class="tag">Bootstrap</span><span class="tag">REST API</span>
+                        </div>
+                        <div class="flex gap-2.5">
+                            <a href="#" class="btn-primary text-xs px-4 py-2"><i class="fas fa-external-link-alt"></i>
+                                Live Demo</a>
+                            <a href="#" class="btn-outline text-xs px-4 py-2"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card lift glass rounded-3xl overflow-hidden reveal border"
+                    style="border-color:rgba(77,201,138,0.15)">
+                    <div class="relative h-52 overflow-hidden"
+                        style="background:linear-gradient(135deg,var(--emerald),var(--sage))">
+                        <div class="absolute inset-0 opacity-[0.08]"
+                            style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:20px 20px;">
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                            <i class="fas fa-shopping-cart text-6xl" style="color:rgba(255,255,255,0.5)"></i>
+                            <span class="text-xs font-mono" style="color:rgba(255,255,255,0.4)">E-Commerce
+                                Platform</span>
+                        </div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono font-bold"
+                            style="background:rgba(10,35,24,0.4);color:#fff;border:1px solid rgba(255,255,255,0.2)">#02</span>
+                        <div class="overlay absolute inset-0 flex items-center justify-center gap-3"
+                            style="background:rgba(10,35,24,0.92)">
+                            <a href="#" class="btn-mint text-xs px-4 py-2"><i class="fas fa-external-link-alt"></i> Live
+                                Demo</a>
+                            <a href="#" class="btn-ghost-white text-xs px-4 py-2"><i class="fab fa-github"></i>
+                                GitHub</a>
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="font-display font-bold text-xl mb-2" style="color:var(--forest)">E-Commerce Website
+                        </h3>
+                        <p class="text-sm leading-relaxed mb-5" style="color:var(--muted)">
+                            Complete online shopping platform with product catalog, cart management, order processing,
+                            payment integration, and Filament admin dashboard.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="tag">Laravel</span><span class="tag">MySQL</span><span
+                                class="tag">JavaScript</span>
+                            <span class="tag">Tailwind</span><span class="tag">Filament</span>
+                        </div>
+                        <div class="flex gap-2.5">
+                            <a href="#" class="btn-primary text-xs px-4 py-2"><i class="fas fa-external-link-alt"></i>
+                                Live Demo</a>
+                            <a href="#" class="btn-outline text-xs px-4 py-2"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card lift glass rounded-3xl overflow-hidden reveal border"
+                    style="border-color:rgba(77,201,138,0.15)">
+                    <div class="relative h-52 overflow-hidden"
+                        style="background:linear-gradient(135deg,var(--pine),var(--emerald))">
+                        <div class="absolute inset-0 opacity-[0.07]"
+                            style="background-image:radial-gradient(circle,#4DC98A 1px,transparent 1px);background-size:20px 20px;">
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                            <i class="fas fa-graduation-cap text-6xl" style="color:rgba(77,201,138,0.5)"></i>
+                            <span class="text-xs font-mono" style="color:rgba(77,201,138,0.4)">Learning
+                                Management</span>
+                        </div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono font-bold"
+                            style="background:rgba(77,201,138,0.15);color:var(--mint);border:1px solid rgba(77,201,138,0.25)">#03</span>
+                        <div class="overlay absolute inset-0 flex items-center justify-center gap-3"
+                            style="background:rgba(10,35,24,0.92)">
+                            <a href="#" class="btn-mint text-xs px-4 py-2"><i class="fas fa-external-link-alt"></i> Live
+                                Demo</a>
+                            <a href="#" class="btn-ghost-white text-xs px-4 py-2"><i class="fab fa-github"></i>
+                                GitHub</a>
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="font-display font-bold text-xl mb-2" style="color:var(--forest)">Learning Management
+                            System</h3>
+                        <p class="text-sm leading-relaxed mb-5" style="color:var(--muted)">
+                            LMS for educators and students featuring course creation, quizzes, progress tracking,
+                            certificates, and role-based access control.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span>
+                            <span class="tag">Bootstrap</span><span class="tag">REST API</span>
+                        </div>
+                        <div class="flex gap-2.5">
+                            <a href="#" class="btn-primary text-xs px-4 py-2"><i class="fas fa-external-link-alt"></i>
+                                Live Demo</a>
+                            <a href="#" class="btn-outline text-xs px-4 py-2"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card lift glass rounded-3xl overflow-hidden reveal border"
+                    style="border-color:rgba(77,201,138,0.15)">
+                    <div class="relative h-52 overflow-hidden"
+                        style="background:linear-gradient(135deg,var(--sage),var(--mint))">
+                        <div class="absolute inset-0 opacity-[0.08]"
+                            style="background-image:radial-gradient(circle,rgba(10,35,24,0.8) 1px,transparent 1px);background-size:20px 20px;">
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                            <i class="fas fa-user-circle text-6xl" style="color:rgba(10,35,24,0.4)"></i>
+                            <span class="text-xs font-mono" style="color:rgba(10,35,24,0.4)">Portfolio Website</span>
+                        </div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono font-bold"
+                            style="background:rgba(10,35,24,0.3);color:var(--forest);border:1px solid rgba(10,35,24,0.2)">#04</span>
+                        <div class="overlay absolute inset-0 flex items-center justify-center gap-3"
+                            style="background:rgba(10,35,24,0.92)">
+                            <a href="#" class="btn-mint text-xs px-4 py-2"><i class="fas fa-external-link-alt"></i> Live
+                                Demo</a>
+                            <a href="#" class="btn-ghost-white text-xs px-4 py-2"><i class="fab fa-github"></i>
+                                GitHub</a>
+                        </div>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="font-display font-bold text-xl mb-2" style="color:var(--forest)">Personal Portfolio
+                            Website</h3>
+                        <p class="text-sm leading-relaxed mb-5" style="color:var(--muted)">
+                            This portfolio — built with deep forest green premium design, smooth animations, dark hero
+                            section, marquee skill strips, and full responsiveness.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="tag">HTML5</span><span class="tag">Tailwind CSS</span><span
+                                class="tag">JavaScript</span>
+                            <span class="tag">CSS3</span><span class="tag">Responsive</span>
+                        </div>
+                        <div class="flex gap-2.5">
+                            <a href="#" class="btn-primary text-xs px-4 py-2"><i class="fas fa-external-link-alt"></i>
+                                Live Demo</a>
+                            <a href="#" class="btn-outline text-xs px-4 py-2"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+     CONTACT  (dark bg)
+═══════════════════════════════════════ -->
+    <section id="contact" class="section-dark relative py-20 md:py-24 overflow-hidden">
+        <div class="absolute top-0 right-0 w-72 h-72 blob opacity-10 animate-floatSlow"
+            style="background:radial-gradient(circle,var(--sage),transparent)"></div>
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-center mb-12 reveal">
+                <p class="text-xs font-mono uppercase tracking-widest mb-2" style="color:var(--mint)">Get In Touch</p>
+                <h2 class="font-display font-bold text-5xl text-white">
+                    Contact <span class="grad-text-light">Me</span>
+                </h2>
+                <div class="flex justify-center mt-5">
+                    <div class="h-1 w-20 rounded-full"
+                        style="background:linear-gradient(90deg,var(--emerald),var(--mint))"></div>
+                </div>
+                <p class="mt-4 text-sm max-w-md mx-auto" style="color:rgba(232,248,240,0.5)">
+                    Have a project in mind or just want to say hello? I'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-5xl mx-auto">
+                <div class="lg:col-span-4 reveal">
+                    <div class="glass-dark rounded-3xl p-6 h-full border flex flex-col justify-between"
+                        style="border-color:rgba(77,201,138,0.14)">
+                        <div>
+                            <p class="text-xs font-mono uppercase tracking-widest mb-2"
+                                style="color:rgba(77,201,138,0.6)">
+                                Let's Build
+                            </p>
+                            <h3 class="font-display font-bold text-3xl text-white leading-tight">
+                                A Project <span class="grad-text-light">Together</span>
+                            </h3>
+                            <p class="mt-4 text-sm leading-relaxed" style="color:rgba(232,248,240,0.55)">
+                                Reach out via email, phone, or social links. I usually reply quickly and I am open to
+                                freelance and full-time work.
+                            </p>
+                        </div>
+                        <div class="mt-6 rounded-2xl px-4 py-3 border"
+                            style="background:rgba(77,201,138,0.08);border-color:rgba(77,201,138,0.15)">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2.5 h-2.5 rounded-full animate-pulse2" style="background:#10b981"></span>
+                                <p class="text-sm font-semibold text-white">Available for Work</p>
+                            </div>
+                            <p class="text-xs" style="color:rgba(232,248,240,0.45)">Open to freelance & full-time roles
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 reveal space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="glass-dark rounded-2xl p-5 flex items-start gap-4 lift border"
+                            style="border-color:rgba(77,201,138,0.1)">
+                            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                                style="background:rgba(77,201,138,0.15);color:var(--mint)">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold mb-0.5" style="color:rgba(77,201,138,0.6)">Email</p>
+                                <a href="mailto:sahilmagar275@email.com"
+                                    class="text-sm font-medium text-white hover:text-mint transition-colors">sahilmagar275@email.com</a>
+                            </div>
+                        </div>
+                        <div class="glass-dark rounded-2xl p-5 flex items-start gap-4 lift border"
+                            style="border-color:rgba(77,201,138,0.1)">
+                            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                                style="background:rgba(77,201,138,0.15);color:var(--mint)">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold mb-0.5" style="color:rgba(77,201,138,0.6)">Phone</p>
+                                <a href="tel:+9779811982470"
+                                    class="text-sm font-medium text-white hover:text-mint transition-colors">+977
+                                    9811982470</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-dark rounded-2xl p-5 flex items-start gap-4 lift border"
+                        style="border-color:rgba(77,201,138,0.1)">
+                        <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                            style="background:rgba(77,201,138,0.15);color:var(--mint)">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold mb-0.5" style="color:rgba(77,201,138,0.6)">Location</p>
+                            <p class="text-sm font-medium text-white">Pokhara Kaski, Nepal</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-dark rounded-2xl p-5 border" style="border-color:rgba(77,201,138,0.1)">
+                        <p class="text-xs font-semibold mb-3" style="color:rgba(77,201,138,0.6)">Find Me On</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="https://github.com/sahilthapamagar" target="_blank"
+                                class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-medium transition-all hover:scale-105 text-white"
+                                style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)"><i
+                                    class="fab fa-github"></i> GitHub</a>
+                            <a href="https://www.linkedin.com/in/sahil-thapa-1508683b3/" target="_blank"
+                                class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-medium transition-all hover:scale-105 text-white"
+                                style="background:rgba(0,119,181,0.15);border:1px solid rgba(0,119,181,0.2)"><i
+                                    class="fab fa-linkedin-in"></i> LinkedIn</a>
+                            <a href="https://www.facebook.com/sahil.thapa.magar.38221" target="_blank"
+                                class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-medium transition-all hover:scale-105 text-white"
+                                style="background:rgba(24,119,242,0.15);border:1px solid rgba(24,119,242,0.2)"><i
+                                    class="fab fa-facebook-f"></i> Facebook</a>
+                            <a href="mailto:sahilmagar275@email.com"
+                                class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-medium transition-all hover:scale-105 text-white"
+                                style="background:rgba(234,67,53,0.15);border:1px solid rgba(234,67,53,0.2)"><i
+                                    class="fas fa-envelope"></i> Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+     FOOTER  (deepest dark)
+═══════════════════════════════════════ -->
+    <footer class="py-14 relative" style="background:var(--forest);border-top:1px solid rgba(77,201,138,0.1)">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10">
+                <div class="space-y-4">
+                    <div>
+                        <p class="font-display font-black text-2xl">
+                            <span class="grad-text-light">Sahil</span> <span class="text-white">Thapa</span>
+                        </p>
+                        <p class="text-xs font-mono mt-1" style="color:rgba(77,201,138,0.4)">Full-Stack Web Developer
+                        </p>
+                    </div>
+                    <p class="text-sm leading-relaxed" style="color:rgba(232,248,240,0.45)">
+                        Building modern, scalable web experiences with clean code and thoughtful design.
+                    </p>
+                    <div class="flex gap-2">
+                        <a href="https://github.com/sahilthapamagar" class="social-btn" aria-label="GitHub"><i
+                                class="fab fa-github text-sm" style="color:var(--mint)"></i></a>
+                        <a href="https://www.linkedin.com/in/sahil-thapa-1508683b3/" class="social-btn"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in text-sm"
+                                style="color:var(--mint)"></i></a>
+                        <a href="https://www.facebook.com/sahil.thapa.magar.38221" class="social-btn"
+                            aria-label="Facebook"><i class="fab fa-facebook-f text-sm"
+                                style="color:var(--mint)"></i></a>
+                        <a href="mailto:sahilmagar275@email.com" class="social-btn" aria-label="Email"><i
+                                class="fas fa-envelope text-sm" style="color:var(--mint)"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="font-semibold text-sm mb-5 text-white">Quick Links</p>
+                    <nav class="space-y-3">
+                        <a href="#home" class="block text-sm transition-all hover:translate-x-1.5"
+                            style="color:rgba(232,248,240,0.4)">→ Home</a>
+                        <a href="#about" class="block text-sm transition-all hover:translate-x-1.5"
+                            style="color:rgba(232,248,240,0.4)">→ About</a>
+                        <a href="#skills" class="block text-sm transition-all hover:translate-x-1.5"
+                            style="color:rgba(232,248,240,0.4)">→ Skills</a>
+                        <a href="#projects" class="block text-sm transition-all hover:translate-x-1.5"
+                            style="color:rgba(232,248,240,0.4)">→ Projects</a>
+                        <a href="#contact" class="block text-sm transition-all hover:translate-x-1.5"
+                            style="color:rgba(232,248,240,0.4)">→ Contact</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <p class="font-semibold text-sm mb-5 text-white">Get In Touch</p>
+                    <div class="space-y-3">
+                        <p class="flex items-center gap-2 text-sm" style="color:rgba(232,248,240,0.4)">
+                            <i class="fas fa-envelope w-4" style="color:var(--sage)"></i> sahilmagar275@email.com
+                        </p>
+                        <p class="flex items-center gap-2 text-sm" style="color:rgba(232,248,240,0.4)">
+                            <i class="fas fa-phone w-4" style="color:var(--sage)"></i> +977 9811982470
+                        </p>
+                        <p class="flex items-center gap-2 text-sm" style="color:rgba(232,248,240,0.4)">
+                            <i class="fas fa-map-marker-alt w-4" style="color:var(--sage)"></i> Pokhara Kaski, Nepal
+                        </p>
+                    </div>
+                    <a href="#" download class="btn-mint inline-flex mt-5 text-sm px-5 py-2.5">
+                        <i class="fas fa-download text-xs"></i> Download CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
+                style="border-color:rgba(77,201,138,0.08)">
+                <p class="text-xs" style="color:rgba(232,248,240,0.25)">© 2026 Sahil Thapa. All Rights Reserved.</p>
+                <p class="text-xs" style="color:rgba(232,248,240,0.25)">
+                    Crafted with <span style="color:var(--mint)">♥</span> using HTML5, Tailwind CSS & JavaScript
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top -->
+    <button id="scroll-top" aria-label="Scroll to top"
+        class="hidden fixed bottom-6 right-6 w-12 h-12 rounded-2xl flex items-center justify-center z-50 transition-all hover:scale-110 shadow-[0_8px_24px_rgba(26,107,60,0.4)]"
+        style="background:linear-gradient(135deg,var(--emerald),var(--sage));color:#fff">
+        <i class="fas fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- ═══════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════ -->
+    <script src="main.js"></script>
+</body>
+
+</html>
