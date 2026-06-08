@@ -76,12 +76,23 @@
             });
         });
 
-        // CV download
-        document.querySelectorAll('[download]').forEach(btn => {
-            btn.addEventListener('click', e => {
+        // CV download — fetch PDF as blob so it saves with the correct .pdf type
+        document.querySelectorAll('a[href="assets/cv.pdf"]').forEach(btn => {
+            btn.addEventListener('click', async e => {
                 e.preventDefault();
-                const a = document.createElement('a');
-                a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent('Sahil Thapa - CV\n\nReplace with your actual CV file.');
-                a.download = 'Sahil_Thapa_CV.txt'; a.click();
+                const fileName = btn.getAttribute('download') || 'Sahil_Thapa_CV.pdf';
+                try {
+                    const res = await fetch('assets/cv.pdf');
+                    if (!res.ok) throw new Error('CV file not found');
+                    const blob = new Blob([await res.arrayBuffer()], { type: 'application/pdf' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = fileName.endsWith('.pdf') ? fileName : fileName + '.pdf';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                } catch {
+                    window.open('assets/cv.pdf', '_blank');
+                }
             });
         });
